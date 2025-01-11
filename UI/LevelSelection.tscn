@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://6ncph16i3r5d"]
+
+[ext_resource type="Script" path="res://UI/LevelSelection.gd" id="1_8qp8h"]
+[ext_resource type="Texture2D" uid="uid://dndcq5ca8fyp0" path="res://assets/Gray.png" id="2_oatpx"]
+[ext_resource type="Script" path="res://UI/button.gd" id="3_4j2p1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qp8h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.219608, 0.219608, 0.219608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oatpx")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -68.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Level One" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level One: The Grasslands"
+script = ExtResource("3_4j2p1")
+
+[node name="Level Two" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level Two: The Factory"
+
+[node name="Level Three" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level Three: The Mushroom Forest"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Level One" to="." method="_on_level_one_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Level Two" to="." method="_on_level_two_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Level Three" to="." method="_on_level_three_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

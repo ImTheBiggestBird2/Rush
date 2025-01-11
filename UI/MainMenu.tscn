@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmau7ww5m6kp"]
+
+[ext_resource type="Script" path="res://UI/levelSelect.gd" id="1_s40co"]
+[ext_resource type="Texture2D" uid="uid://dndcq5ca8fyp0" path="res://assets/Gray.png" id="2_xrdy5"]
+[ext_resource type="Script" path="res://UI/Play.gd" id="3_qhp7w"]
+[ext_resource type="Texture2D" uid="uid://kvysf6aq8a8n" path="res://assets/RushLogo.webp" id="4_1e001"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s40co")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.219608, 0.219608, 0.219608, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1184.0
+offset_top = -780.0
+offset_right = 2854.0
+offset_bottom = 1470.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xrdy5")
+stretch_mode = 1
+
+[node name="TextEdit" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "																													THE BEST GAME OF ALL TIME
+
+																															By USC Gamemakers"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+script = ExtResource("3_qhp7w")
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_right = 111.0
+offset_bottom = 218.0
+grow_horizontal = 2
+texture = ExtResource("4_1e001")
+expand_mode = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_settings_pressed"]

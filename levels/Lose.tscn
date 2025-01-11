@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2etfgk7s06ef"]
+
+[ext_resource type="Script" path="res://levels/Win.gd" id="1_211dv"]
+[ext_resource type="Texture2D" uid="uid://dnd503beyy3ib" path="res://assets/Purple.png" id="2_bume2"]
+[ext_resource type="Script" path="res://UI/button.gd" id="3_8pcao"]
+[ext_resource type="Script" path="res://levels/Retry.gd" id="4_imnyq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_211dv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.168627, 0.168627, 0.168627, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bume2")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 200
+text = "You Lose!
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -24.5
+offset_right = 48.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "You got this!
+Keep going!"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -38.5
+offset_bottom = 38.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+script = ExtResource("3_8pcao")
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -38.5
+offset_right = 138.0
+offset_bottom = 38.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Retry"
+script = ExtResource("4_imnyq")
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
