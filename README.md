@@ -1,1 +1,1 @@
-This game is for the TSA video game design competition for 2024-25
+This game is a demo game for USC GAMEMAKERS
